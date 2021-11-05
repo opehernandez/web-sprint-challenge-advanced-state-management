@@ -28,10 +28,9 @@ export const reducer = (state = initialState, action)=>{
                 ...state,
                 smurfs :[...state.smurfs, action.payload],
                 isLoading: false,
-                fetchError: "Failed to fetch a smurf"
+                error: "Failed to fetch a smurf"
             }
         case ADD_SMURF:
-            console.log('reaching reducer')
             return {
                 ...state,
                 smurfs :[...state.smurfs, action.payload],
