@@ -1,8 +1,50 @@
+import { ADD_SMURF, SET_ERROR, START_FETCH, SUCCESFUL_FETCH, FAILED_FETCH} from "../actions";
 
 export const initialState = {
+    smurfs: [],
+    isLoading: false,
+    fetchError: '',
+    error: ''
 }
 
-const reducer = ()=>{
+export const reducer = (state = initialState, action)=>{
+    switch(action.type) {
+    
+        case START_FETCH:
+            return {
+                ...state,
+                isLoading: true,
+                error: ''
+            }
+        case SUCCESFUL_FETCH:
+            return {
+                ...state,
+                smurfs :[...state.smurfs, action.payload],
+                isLoading : false,
+                fetchError: ''
+            }
+        case FAILED_FETCH:
+            return {
+                ...state,
+                smurfs :[...state.smurfs, action.payload],
+                isLoading: false,
+                fetchError: "Failed to fetch a smurf"
+            }
+        case ADD_SMURF:
+            console.log('reaching reducer')
+            return {
+                ...state,
+                smurfs :[...state.smurfs, action.payload],
+                error: ''
+            }
+        case SET_ERROR:
+            return {
+                ...state,
+                error: action.payload
+            }
+        default:
+            return state
+    }
 }
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
