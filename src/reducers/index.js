@@ -28,13 +28,13 @@ export const reducer = (state = initialState, action)=>{
                 ...state,
                 smurfs :[...state.smurfs, action.payload],
                 isLoading: false,
-                error: "Failed to fetch a smurf"
+                error: "Failed error to fetch a smurf"
             }
         case ADD_SMURF:
             return {
                 ...state,
                 smurfs :[...state.smurfs, action.payload],
-                error: ''
+                error: 'Failed to add smurf'
             }
         case SET_ERROR:
             return {
